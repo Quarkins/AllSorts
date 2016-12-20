@@ -1,0 +1,54 @@
+---
+title: "ALL Classifier"
+author: "Anthony Hawkins"
+date: "14 July 2016"
+output: html_document
+---
+
+Hello and welcome to the Acute Lymphoblastic Leukemia (ALL) Classifier.
+The aim of this tool is simple: to help classify different sub-types of ALL by gene expression from RNA seqeunced data. The tool will successfully classify a sample into one of the following four categories:
+
+Phlike: Phildelphia like, a gene expression similar to that of the famous Philidelphia fuison (BCR-ABL)
+
+ERG: A fusion resulting in an expression
+
+ETV: A fusion resulting in an expression profile similar or same as that of ETV-RUNX1.
+
+Other: A miscelleneous class containing a mixture of other sub-classes (e.g. MLL, High Hyperdiploidy, T-ALL e.t.c)
+
+NOTE: By definition the classifier can *ONLY* designate a cluster to one of the above four classes it was built on. However, if the probability for classification is less than threshold for all four categories the classifier returns as "Unclassified", indicating that the gene expression profile was not similar enough to any of the classes, but that does not mean it could not in reality be one of those types.
+
+Right, so lets get stuck in to the functionality. This might be what a standard workflow could look like:
+
+Read in the data and get in format:
+```{r}
+counts = read.table(file="../data/test_data.txt",sep=' ',stringsAsFactors = F,header=T)
+head(counts)
+```
+
+Note that the row-names of counts must either be Gene Symbols or Ensembl Gene ID's.
+
+Now use the streamline function to produce the log fpkm matrix with the genes required for classification:
+```{r}
+library(AllClassifier)
+sfpkm = streamline(counts[,c(1:6)],counts$Gene_Length)
+head(sfpkm)
+```
+
+Once the FPKM has been constructed and subsetted purely on the genes required by the classifier one can simply input the dataset into the classifier:
+
+```{r}
+threshes = c(0.1,0.2,0.8,0.9)
+classed<-classify(sfpkm,threshes)
+classed
+```
+
+So as we can see, in this toy dataset, using a threshold of 0.6 we classify two samples as Phlike, two samples as ETV, and one as Other and ERG.
+
+We may want to visualise our samples to see how different they are from themselves and whether the samples with same classification actually cluster together nicely:
+
+```{r}
+visualise(sfpkm,classed)
+```
+
+Here the separation is clear and gives us confidence that we are distinguishing the classes well!
