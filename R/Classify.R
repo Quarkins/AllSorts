@@ -24,21 +24,7 @@ classify <- function(FPKM,thresh=c(0.25,0.5,0.5,0.75)){
     RFpred <- predict(RF2,data.frame(t(FPKM)))
     RFprob <- predict(RF2,data.frame(t(FPKM)),type="prob")
 
-    #OLD SINGLE THRESHOLD
-    #Anything with prob below threshold should be 'Unclassified'
-    #Maj = apply(RFprob[,1:3],1,max)
-    #threshclass = data.frame(class = factor(RFpred,levels=c(levels(RFpred),'Unclassified')),row.names= colnames(FPKM))
-    #for(i in 1:length(Maj))
-    #{
-    #    if(Maj[i]> thresh){
-    #        threshclass[i,1] = RFpred[i]
-    #    }
-    #    else
-    #    {
-    #        threshclass[i,1] = "Unclassified"
-    #    }
-    #}
-
+    
     out = as.data.frame(RFprob)
     out$Classified = ifelse(out$ERG > thresh[1],"ERG",
                             ifelse(out$ETV>thresh[2],"ETV",
@@ -56,11 +42,6 @@ visualise <- function(sfpkm,classed){
     #Construct an MDS plot, coloured by Class
     pmds = plotMDS(sfpkm,gene.selection="common",col=pal[classed$class],pch=16)
     legend('topleft',legend=unique(levels(classed$class)),col=pal,pch=16)
-
-    #Heatmap
-    #yx <- as.matrix(sfpkm)
-    #hm <- heatmap(yx)
-
     return(pmds)
 
 }
