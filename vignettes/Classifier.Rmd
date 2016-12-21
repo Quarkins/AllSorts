@@ -38,12 +38,12 @@ head(sfpkm)
 Once the FPKM has been constructed and subsetted purely on the genes required by the classifier one can simply input the dataset into the classifier:
 
 ```{r}
-threshes = c(0.1,0.2,0.8,0.9)
+threshes = c(0.25,0.25,0.75,0.75)
 classed<-classify(sfpkm,threshes)
 classed
 ```
 
-So as we can see, in this toy dataset, we classify two samples as ERG, one as ETV, two Other and one unclassified since we required the high threshold of 0.8 for Other.
+So as we can see, in this toy dataset, we classify two samples as ETV, one as ERG, and three others.
 
 We may want to visualise our samples to see how different they are from themselves and whether the samples with same classification actually cluster together nicely:
 
