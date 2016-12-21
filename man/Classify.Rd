@@ -5,10 +5,10 @@
 classify(sfpkm,thresh)
 }
 \description{
-Classifies the streamlined log FPKM samples into one of the four classes: Phlike, ETV, ERG, Other or returns Unclassified if none of the classes have a probability of classification above the threshold (default: ERG:0.5, ETV:0.25, Phlike:0.5, Other:0.75)
+Classifies the streamlined log FPKM samples into one of the four classes: Phlike, ETV, ERG, Other or returns Unclassified if none of the classes have a probability of classification above the threshold (default: ERG:0.25, ETV:0.25, Phlike:0.5, Other:0.75)
 }
 \examples{
-spfkm <- streamline(counts,genelengths)
+sfpkm <- streamline(counts,glengths)
 thresh = c(0.2,0.2,0.8,0.9)
-classes <- classify(spkm,thresh)
+classes <- classify(sfpkm,thresh)
 }

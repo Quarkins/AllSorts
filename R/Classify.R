@@ -37,7 +37,6 @@ classify <- function(FPKM,thresh=c(0.25,0.5,0.5,0.75)){
 
 #Quick function to visualise the classification on an MDS plot and Heat Map
 visualise <- function(sfpkm,classed){
-    library(RColorBrewer)
     pal = brewer.pal(5,"Set1")
     #Construct an MDS plot, coloured by Class
     pmds = plotMDS(sfpkm,gene.selection="common",col=pal[as.factor(classed$Classified)],pch=16)
@@ -48,8 +47,6 @@ visualise <- function(sfpkm,classed){
 
 #A function to visualise the probability distribution for each sample
 probvis <- function(classed){
-    library(ggplot2)
-    library(tidyr)
     classed$Sample = row.names(classed)
     dat= classed %>% gather(Class,prob,ERG:Phlike)
     gg <- ggplot(dat)
