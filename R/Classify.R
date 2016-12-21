@@ -13,13 +13,13 @@ streamline <- function(counts,glengths){
     FPKM <- rpkm(raw,log=TRUE,gene.length = glengths)
 
     #Now read in the list of genes needed by the Classifier
-    load("data/topGeneNames.Rda")
+    data(topGeneNames)
     FPKM[topgenes,]
     return(FPKM)
 }
 
 classify <- function(FPKM,thresh=c(0.25,0.5,0.5,0.75)){
-    load("data/RF_model.Rda") #Load in random forest
+    data(RF_model) #Load in random forest
 
     RFpred <- predict(RF2,data.frame(t(FPKM)))
     RFprob <- predict(RF2,data.frame(t(FPKM)),type="prob")
@@ -40,8 +40,8 @@ visualise <- function(sfpkm,classed){
     library(RColorBrewer)
     pal = brewer.pal(5,"Set1")
     #Construct an MDS plot, coloured by Class
-    pmds = plotMDS(sfpkm,gene.selection="common",col=pal[classed$class],pch=16)
-    legend('topleft',legend=unique(levels(classed$class)),col=pal,pch=16)
+    pmds = plotMDS(sfpkm,gene.selection="common",col=pal[as.factor(classed$Classified)],pch=16)
+    legend('topleft',legend=levels(as.factor(classed$Classified)),col=pal,pch=16)
     return(pmds)
 
 }

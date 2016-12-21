@@ -43,7 +43,7 @@ classed<-classify(sfpkm,threshes)
 classed
 ```
 
-So as we can see, in this toy dataset, using a threshold of 0.6 we classify two samples as Phlike, two samples as ETV, and one as Other and ERG.
+So as we can see, in this toy dataset, we classify two samples as ERG, one as ETV, two Other and one unclassified since we required the high threshold of 0.8 for Other.
 
 We may want to visualise our samples to see how different they are from themselves and whether the samples with same classification actually cluster together nicely:
 
