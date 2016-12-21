@@ -52,3 +52,9 @@ visualise(sfpkm,classed)
 ```
 
 Here the separation is clear and gives us confidence that we are distinguishing the classes well!
+
+But if we have plenty of samples way may wish to get an overview of the probability landscape of which samples are more likely to be classed as one particular class as well as compare samples which have been classified as the same class. AllSorts provides a nice visaulisation for this:
+
+```{r}
+probvis(classed)
+```

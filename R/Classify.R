@@ -45,3 +45,16 @@ visualise <- function(sfpkm,classed){
     return(pmds)
 
 }
+
+#A function to visualise the probability distribution for each sample
+probvis <- function(classed){
+    library(ggplot2)
+    library(tidyr)
+    classed$Sample = row.names(classed)
+    dat= classed %>% gather(Class,prob,ERG:Phlike)
+    gg <- ggplot(dat)
+    gg + geom_bar(aes(x=Sample,y=prob,fill=Class),stat='identity') + 
+        theme(text = element_text(size=10),
+              axis.text.x = element_text(angle=90, hjust=1,size=8)) +
+                labs(y="Probability") + theme_bw()
+}

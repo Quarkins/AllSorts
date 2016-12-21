@@ -2,8 +2,12 @@ export('hello')
 export('streamline')
 export('classify')
 export('visualise')
+export('probvis')
 import('randomForest')
 import('edgeR')
 import('limma')
+import('ggplot2')
+import('tidyr')
+import('RColorBrewer')
 
 
