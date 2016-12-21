@@ -16,7 +16,7 @@ ETV: A fusion resulting in an expression profile similar or same as that of ETV-
 
 Other: A miscelleneous class containing a mixture of other sub-classes (e.g. MLL, High Hyperdiploidy, T-ALL e.t.c)
 
-NOTE: By definition the classifier can *ONLY* designate a cluster to one of the above four classes it was built on. However, if the probability for classification is less than threshold for all four categories the classifier returns as "Unclassified", indicating that the gene expression profile was not similar enough to any of the classes, but that does not mean it could not in reality be one of those types.
+NOTE: By definition the classifier can *ONLY* designate a sample to one of the above four classes it was built on. However, if the probability for classification is less than threshold for all four categories the classifier returns as "Unclassified". This indicates that the gene expression profile was not similar enough to any of the classes with any confidence, however that does not mean it could not in reality be one of those types.
 
 Right, so lets get stuck in to the functionality. This might be what a standard workflow could look like:
 
