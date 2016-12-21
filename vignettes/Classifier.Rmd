@@ -1,5 +1,5 @@
 ---
-title: "ALL Classifier"
+title: "AllSorts"
 author: "Anthony Hawkins"
 date: "14 July 2016"
 output: html_document
@@ -30,7 +30,7 @@ Note that the row-names of counts must either be Gene Symbols or Ensembl Gene ID
 
 Now use the streamline function to produce the log fpkm matrix with the genes required for classification:
 ```{r}
-library(AllClassifier)
+library(AllSorts)
 sfpkm = streamline(counts[,c(1:6)],counts$Gene_Length)
 head(sfpkm)
 ```
