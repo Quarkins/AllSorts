@@ -1,7 +1,7 @@
 
-hello <- function() {
-  print("Hello, world!")
-}
+#hello <- function() {
+#  print("Hello, world!")
+#}
 
 
 streamline <- function(counts,glengths){
@@ -36,10 +36,10 @@ classify <- function(FPKM,thresh=c(0.25,0.5,0.5,0.75)){
 }
 
 #Quick function to visualise the classification on an MDS plot and Heat Map
-visualise <- function(sfpkm,classed){
+visualise <- function(FPKM,classed){
     pal = brewer.pal(5,"Set1")
     #Construct an MDS plot, coloured by Class
-    pmds = plotMDS(sfpkm,gene.selection="common",col=pal[as.factor(classed$Classified)],pch=16)
+    pmds = plotMDS(FPKM,gene.selection="common",col=pal[as.factor(classed$Classified)],pch=16)
     legend('topleft',legend=levels(as.factor(classed$Classified)),col=pal,pch=16)
     return(pmds)
 

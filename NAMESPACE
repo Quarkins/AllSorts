@@ -1,4 +1,3 @@
-export('hello')
 export('streamline')
 export('classify')
 export('visualise')

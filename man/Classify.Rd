@@ -2,13 +2,19 @@
 \alias{classify}
 \title{classify}
 \usage{
-classify(sfpkm,thresh)
+classify(FPKM,thresh)
+}
+\arguments{
+    \item{FPKM}{A matrix of fragments/reads per kilobase per million. Rows are genes and columns are samples.}
+    \item{thresh}{A character vector of four floats (between 0 and 1) which are the thresholds for ERG,ETV,Phlike and Other respectively.}
+}
+\value{
+A data frame where each row represents the probability for given a sample to fit each of the four classes as well as its overall classification based on the chosen thresholds.
 }
 \description{
 Classifies the streamlined log FPKM samples into one of the four classes: Phlike, ETV, ERG, Other or returns Unclassified if none of the classes have a probability of classification above the threshold (default: ERG:0.25, ETV:0.25, Phlike:0.5, Other:0.75)
 }
-\examples{
-sfpkm <- streamline(counts,glengths)
-thresh = c(0.2,0.2,0.8,0.9)
-classes <- classify(sfpkm,thresh)
-}
+%\examples{
+%thresh <- c(0.2,0.2,0.8,0.9)
+%classes <- classify(FPKM,thresh)
+%}
