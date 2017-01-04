@@ -22,8 +22,8 @@ Right, so lets get stuck in to the functionality. This might be what a standard 
 
 Read in the data and get in format:
 ```{r}
-cf = system.file("data","test_data.txt",package="AllSorts") #Get path to raw text file (a tsv)
-counts = read.table(file=cf,sep=' ',stringsAsFactors = F,header=T)
+cf <- system.file("data","test_data.txt",package="AllSorts") #Get path to raw text file (a tsv)
+counts <- read.table(file=cf,sep=' ',stringsAsFactors = F,header=T)
 head(counts)
 ```
 
@@ -32,15 +32,15 @@ Note that the row-names of counts must either be Gene Symbols or Ensembl Gene ID
 Now use the streamline function to produce the log fpkm matrix with the genes required for classification:
 ```{r}
 library(AllSorts)
-sfpkm = streamline(counts[,c(1:6)],counts$Gene_Length)
+sfpkm <- streamline(counts[,c(1:6)],counts$Gene_Length)
 head(sfpkm)
 ```
 
 Once the FPKM has been constructed and subsetted purely on the genes required by the classifier one can simply input the dataset into the classifier:
 
 ```{r}
-threshes = c(0.25,0.25,0.75,0.75)
-classed<-classify(sfpkm,threshes)
+threshes <- c(0.25,0.25,0.75,0.75)
+classed <- classify(sfpkm,threshes)
 classed
 ```
 
