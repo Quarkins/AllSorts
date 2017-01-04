@@ -22,6 +22,7 @@ Then simply use the install_github("author/package") function of devtools. So fo
     install_github("Oshlack/AllSorts")
 
 Alternatively if one does not have the required BioConductor packages such as edgeR/limma one may wish to install using BiocLite. Note devtools are still required in this case.
+
     ## try http:// if https:// URLs are not supported
     source("https://bioconductor.org/biocLite.R")
     biocLite("Oshlack/AllSorts")
