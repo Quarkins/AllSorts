@@ -1,12 +1,13 @@
 Package: AllSorts
 Type: Package
 Title: Classification of RNA-seq data from ALL samples
-Version: 0.1
+Version: 0.99.0
 Date: 2016-12-15
 Author: Anthony Hawkins
-Maintainer: Anthony Hawkins <anthony.hawkins@mcri.edu.au>
+Maintainer: Anthony Hawkins <anthony.hawkins@mcri.edu.au>, Breon Schmidt <breon.schmidt@mcri.edu.au>
 Description: Takes raw count data (counts per gene) from RNA-Seq data and classifies sample based on a random forest machine learning algorithm. Outputs the class of all input samples and the probability for the sample being classified into one of the following categories:Phlike, ETV, ERG, Other.
 License: Artistic-2.0
 Imports: randomForest, edgeR, limma, RColorBrewer, ggplot2, tidyr
 Suggests: knitr
 vignetteBuilder: knitr
+biocViews:Software,Classification

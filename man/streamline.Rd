@@ -15,6 +15,9 @@ Produces a log FPKM (fragment/read per kilobase per million) of the
 genes necessary for classification. Requires a data frame of raw counts per gene (each row corresponds to a gene) and a vector of gene lengths.
 Note: in order to succesfully classify all twenty of the genes are required by the classifier.
 }
-%\examples{
-%streamline(counts,glengths)
-%}
+\examples{
+library(AllSorts)
+cf <- system.file("data","test_data.txt",package="AllSorts") #Get path to raw text file (a tsv)
+counts <- read.table(file=cf,sep=' ',stringsAsFactors = FALSE,header=TRUE)
+FPKM <- streamline(counts[,c(1:6)],counts$Gene_Length)
+}

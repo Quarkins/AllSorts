@@ -11,6 +11,12 @@ probvis(classed)
 \description{
 Produces a stacked bar chart depicting the probabilities a given sample has of being classified for each class (hence the sum is always 1.0). 
 }
-%\examples{
-%probvis(classed)
-%}
+\examples{
+library(AllSorts)
+cf <- system.file("data","test_data.txt",package="AllSorts") #Get path to raw text file (a tsv)
+counts <- read.table(file=cf,sep=' ',stringsAsFactors = FALSE,header=TRUE)
+FPKM <- streamline(counts[,c(1:6)],counts$Gene_Length)
+thresh <- c(0.2,0.2,0.8,0.9)
+classed <- classify(FPKM,thresh)
+probvis(classed)
+}
