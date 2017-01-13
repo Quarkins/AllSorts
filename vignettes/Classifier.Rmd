@@ -5,6 +5,8 @@ date: "21 Dec 2016"
 output: html_document
 ---
 
+![AllSorts logo](../AllSorts.png)
+
 Hello and welcome to the Acute Lymphoblastic Leukemia (ALL) Classifier.
 The aim of this tool is simple: to help classify different sub-types of ALL by gene expression from RNA seqeunced data. The tool will successfully classify a sample into one of the following four categories:
 
