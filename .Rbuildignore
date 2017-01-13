@@ -1,0 +1,7 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+^\.DIY.html$
+^\.git*
+^\.DIY.Rmd$
+^AllSorts.png$
+^README.md$

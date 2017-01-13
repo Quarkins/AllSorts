@@ -13,7 +13,6 @@ visualise(FPKM,classed)
 Produces a multidimensional scaling (MDS) plot for all of the samples in your fpkm table and colours them based on the classification in table classed. 
 }
 \examples{
-library(AllSorts)
 cf <- system.file("data","test_data.txt",package="AllSorts") #Get path to raw text file (a tsv)
 counts <- read.table(file=cf,sep=' ',stringsAsFactors = FALSE,header=TRUE)
 FPKM <- streamline(counts[,c(1:6)],counts$Gene_Length)

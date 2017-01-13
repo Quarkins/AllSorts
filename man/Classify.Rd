@@ -15,7 +15,6 @@ A data frame where each row represents the probability for given a sample to fit
 Classifies the streamlined log FPKM samples into one of the four classes: Phlike, ETV, ERG, Other or returns Unclassified if none of the classes have a probability of classification above the threshold (default: ERG:0.25, ETV:0.25, Phlike:0.5, Other:0.75)
 }
 \examples{
-library(AllSorts)
 cf <- system.file("data","test_data.txt",package="AllSorts") #Get path to raw text file (a tsv)
 counts <- read.table(file=cf,sep=' ',stringsAsFactors = FALSE,header=TRUE)
 FPKM <- streamline(counts[,c(1:6)],counts$Gene_Length)
