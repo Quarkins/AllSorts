@@ -1,8 +1,14 @@
 ---
 title: "AllSorts"
 author: "Anthony Hawkins"
-date: "21 Dec 2016"
-output: html_document
+date: "`r Sys.Date()`"
+output:
+    BiocStyle::html_document:
+        toc: true
+vignette: >
+  %\VignetteIndexEntry{An introduction to the AllSorts package}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
 ---
 
 <center>![](../AllSorts.png)</center>
