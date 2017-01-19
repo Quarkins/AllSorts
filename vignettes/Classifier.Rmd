@@ -31,7 +31,7 @@ Right, so lets get stuck in to the functionality. This might be what a standard 
 Read in the data and get in format:
 ```{r}
 cf <- system.file("data","test_data.txt",package="AllSorts") #Get path to raw text file (a tsv)
-counts <- read.table(file=cf,sep=' ',stringsAsFactors = F,header=T)
+counts <- read.table(file=cf,sep=' ',stringsAsFactors = FALSE,header=TRUE)
 head(counts)
 ```
 
