@@ -1,20 +1,28 @@
 ---
 title: "AllSorts"
 author: "Anthony Hawkins"
-date: "21 Dec 2016"
-output: html_document
+date: "`r Sys.Date()`"
+output:
+    BiocStyle::html_document:
+        toc: true
+vignette: >
+  %\VignetteIndexEntry{An introduction to the AllSorts package}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
 ---
+
+<center>![](../AllSorts.png)</center>
 
 Hello and welcome to the Acute Lymphoblastic Leukemia (ALL) Classifier.
 The aim of this tool is simple: to help classify different sub-types of ALL by gene expression from RNA seqeunced data. The tool will successfully classify a sample into one of the following four categories:
 
-Phlike: Phildelphia like, a gene expression similar to that of the famous Philidelphia fuison (BCR-ABL)
+<span style="color:#4286f4">Phlike</span>: Phildelphia like, a gene expression similar to that of the famous Philidelphia fuison (BCR-ABL)
 
-ERG: A fusion resulting in an expression
+<span style="color:#4286f4">ERG</span>: A fusion resulting in an expression
 
-ETV: A fusion resulting in an expression profile similar or same as that of ETV-RUNX1.
+<span style="color:#4286f4">ETV</span>: A fusion resulting in an expression profile similar or same as that of ETV-RUNX1.
 
-Other: A miscelleneous class containing a mixture of other sub-classes (e.g. MLL, High Hyperdiploidy, T-ALL e.t.c)
+<span style="color:#4286f4">Other</span>: A miscelleneous class containing a mixture of other sub-classes (e.g. MLL, High Hyperdiploidy, T-ALL e.t.c)
 
 NOTE: By definition the classifier can *ONLY* designate a sample to one of the above four classes it was built on. However, if the probability for classification is less than threshold for all four categories the classifier returns as "Unclassified". This indicates that the gene expression profile was not similar enough to any of the classes with any confidence, however that does not mean it could not in reality be one of those types.
 
@@ -23,7 +31,7 @@ Right, so lets get stuck in to the functionality. This might be what a standard 
 Read in the data and get in format:
 ```{r}
 cf <- system.file("data","test_data.txt",package="AllSorts") #Get path to raw text file (a tsv)
-counts <- read.table(file=cf,sep=' ',stringsAsFactors = F,header=T)
+counts <- read.table(file=cf,sep=' ',stringsAsFactors = FALSE,header=TRUE)
 head(counts)
 ```
 
